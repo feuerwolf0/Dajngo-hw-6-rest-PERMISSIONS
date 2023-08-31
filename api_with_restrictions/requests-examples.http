@@ -1,0 +1,88 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+
+###
+# получение объявления авторизованного пользователя
+# Просмотреть все объявления с дополнительным полем "В избранном?"
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 11fe1ee82924b811cba7addc9942c8f401e547b7
+
+{
+  "title": "USR1",
+  "description": "11"
+}
+
+###
+
+# Удаление объявления
+DELETE  {{baseUrl}}/advertisements/6/
+Content-Type: application/json
+Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
+
+
+###
+
+# получение объявления по pk
+GET {{baseUrl}}/advertisements/3/
+Content-Type: application/json
+# Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
+
+###
+
+# попытка поменять объявление c542b49812e0f5649025f9bb8db5e8830a083fe0
+PATCH {{baseUrl}}/advertisements/2/
+Content-Type: application/json
+Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
+
+{
+  "status": "OPEN",
+  "draft": "NO"
+}
+
+###
+
+# фильтрация по создателю
+GET {{baseUrl}}/advertisements/?creator=2
+Content-Type: application/json
+
+###
+
+# фильтрация по username
+GET {{baseUrl}}/advertisements/?username=adm
+Content-Type: application/json
+
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_before=2023-08-31
+Content-Type: application/json
+
+
+###
+# Добавить/Удалить объявление в/из избранное
+GET {{baseUrl}}/advertisements/4/favorite/
+Content-Type: application/json
+Authorization: Token 11fe1ee82924b811cba7addc9942c8f401e547b7
+
+
+###
+# Получить все избранные объявления пользователя
+GET {{baseUrl}}/advertisements/favorites/
+Content-Type: application/json
+Authorization: Token 11fe1ee82924b811cba7addc9942c8f401e547b7
+
+# 11fe1ee82924b811cba7addc9942c8f401e547b7
