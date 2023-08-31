@@ -22,7 +22,7 @@ from advertisements.views import AdvertisementViewSet
 
 
 router = DefaultRouter()
-router.register('advertisements', AdvertisementViewSet)
+router.register('advertisements', AdvertisementViewSet, basename='adv')
 
 
 
