@@ -7,8 +7,14 @@ GET {{baseUrl}}/advertisements/
 Content-Type: application/json
 
 ###
+# получение объявлений со статусом OPEN/CLOSED
+GET {{baseUrl}}/advertisements/?status=open
+Content-Type: application/json
+
+###
 # получение объявления авторизованного пользователя
 # Просмотреть все объявления с дополнительным полем "В избранном?"
+# c542b49812e0f5649025f9bb8db5e8830a083fe0
 GET {{baseUrl}}/advertisements/
 Content-Type: application/json
 Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
@@ -36,19 +42,19 @@ Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
 ###
 
 # получение объявления по pk
-GET {{baseUrl}}/advertisements/3/
+GET {{baseUrl}}/advertisements/5/
 Content-Type: application/json
-# Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
+Authorization: Token 11fe1ee82924b811cba7addc9942c8f401e547b7
 
 ###
 
 # попытка поменять объявление c542b49812e0f5649025f9bb8db5e8830a083fe0
-PATCH {{baseUrl}}/advertisements/2/
+PATCH {{baseUrl}}/advertisements/4/
 Content-Type: application/json
 Authorization: Token c542b49812e0f5649025f9bb8db5e8830a083fe0
 
 {
-  "status": "OPEN",
+  "status": "CLOSED",
   "draft": "NO"
 }
 
@@ -61,7 +67,7 @@ Content-Type: application/json
 ###
 
 # фильтрация по username
-GET {{baseUrl}}/advertisements/?username=adm
+GET {{baseUrl}}/advertisements/?username=us
 Content-Type: application/json
 
 
@@ -74,7 +80,7 @@ Content-Type: application/json
 
 ###
 # Добавить/Удалить объявление в/из избранное
-GET {{baseUrl}}/advertisements/4/favorite/
+POST {{baseUrl}}/advertisements/4/favorite/
 Content-Type: application/json
 Authorization: Token 11fe1ee82924b811cba7addc9942c8f401e547b7
 

@@ -26,7 +26,7 @@ class ManageFavorite:
 
     @action(
         detail=True,
-        methods=['get'],
+        methods=['post'],
         url_path='favorite',
         permission_classes=[IsAuthenticated(), ]
     )
